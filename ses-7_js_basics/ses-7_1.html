@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<head>
+    <title>Event Listener</title>
+</head>
+<body>
+    <h1 id="heading-1">Heading 1</h1>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Optio cupiditate hic esse, quasi ipsam ad quos corrupti molestias veniam sapiente.</p>
+    <h3>Heading 3</h3>
+    <button id="btn">Click Me</button>
+</body>
+<script>
+    var element = document.getElementById("btn");
+    var target = document.getElementById("heading-1");
+    element.addEventListener('click', handleClick);
+    function handleClick(){
+        target.style.color = 'white';
+        target.style.backgroundColor = 'black';
+    }
+</script> 
+</html>

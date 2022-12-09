@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<head>
+    <title>Event Listener</title>
+</head>
+<body>
+    <div id="container">
+        <h1 id="heading-1">Heading 1</h1>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Optio cupiditate hic esse, quasi ipsam ad quos corrupti molestias veniam sapiente.</p>
+        <h3>Heading 3</h3>
+    </div>
+    <div id="container">
+        <h1 id="heading-1">Heading 1</h1>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Optio cupiditate hic esse, quasi ipsam ad quos corrupti molestias veniam sapiente.</p>
+        <h3>Heading 3</h3>
+    </div>
+    <button id="btn">Click Me</button>
+</body>
+<script>
+    var element = document.getElementById("btn");
+    var target = document.getElementById("heading-1");
+    var parent = document.getElementById("container");
+
+    var color = 'black', bColor = 'white';
+
+    element.addEventListener('mouseover', clickHandler);
+
+    function clickHandler(){
+        if(color==='black'){
+            color='white';
+            bColor='black';
+        }
+        else{
+            color='black';
+            bColor='white';
+        }
+        target.style.color = color;
+        target.style.backgroundColor = bColor;
+    }
+    // for removing the event
+    // element.removeEventListener('mouseover', clickHandler)
+</script> 
+</html>
