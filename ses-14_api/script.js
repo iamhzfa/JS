@@ -85,7 +85,7 @@ function showComments(commentsData){
     closeBtn.style.cursor = 'pointer';
     closeBtn.style.margin = '0 45vw';
     closeBtn.style.justifyContent = 'center';
-    closeBtn.style.alignItems = 'center'
+    closeBtn.style.alignItems = 'center';
     closeBtn.addEventListener('click', getData)
 
     container.appendChild(closeBtn);
