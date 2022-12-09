@@ -1,5 +1,5 @@
 var request = new XMLHttpRequest();
-
+// hi
 function getData(){
     request.open("get", "https://jsonplaceholder.typicode.com/posts");
     request.send();
