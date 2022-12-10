@@ -1,3 +1,4 @@
+//code run on only codeQuotient
 var compileBtn = document.getElementById('compileBtn');
 var outputConsole = document.getElementById('outputArea');
 
