@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Compiler</title>
+    <style>
+        body{
+            margin: 0;padding: 0;
+        }
+        #upper{
+            text-align: center;
+        }
+        #innerUpper{
+            display: flex;
+            justify-content: end;
+            margin: 0 4px 4px 0;
+        }
+        #compiler{
+            display: flex;
+            margin-left: 4px;
+        }
+        .bottom{
+            display: flex;
+            margin-left: 57vw;
+        }
+        .vl {
+            border-left: 6px solid black;
+            height: 525px;
+        }
+        #compileBtn{
+            margin-top: 8px;
+            background-color: #ffd700;
+            padding: 15px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="upper">
+        <h1>Choose your prefered language and write your code below</h1>
+        <div id="innerUpper">
+            <select id="language">
+                <option value=0>Python</option>
+                <option value=4>JavaScript</option>
+                <option value=7>C</option>
+                <option value=77>C++</option>
+                <option value=8>Java</option>
+            </select>
+        </div>
+    </div>
+
+    <div id="compiler">
+        <div id="codeEditor" style="margin-right: 2px;">
+            <textarea name="codeArea" id="codeArea" cols="110" rows="35" style="outline: none;">#Write your code here</textarea>
+            <!-- <textarea name="codeArea" id="codeArea" cols="110" rows="35" style="outline: none;">#Write your code here&#13;</textarea> -->
+        </div>
+        <div class="vl"></div>
+        <div id="outputConsole" style="margin-left: 2px;">
+            <textarea name="outputArea" id="outputArea" cols="61" rows="35" style="background-color: black; color: whitesmoke; outline: none;">Output : </textarea>
+        </div>
+
+    </div>
+    <div class="bottom">
+        <button id="compileBtn">Compiler</button>
+    </div>
+    
+</body>
+<script src="script.js"></script>
+</html>
