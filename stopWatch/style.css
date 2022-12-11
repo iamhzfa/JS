@@ -1,0 +1,74 @@
+
+    body{
+        background: linear-gradient(.25turn, #5ba2d2, #052b44);
+        margin: 0;padding: 0;
+    }
+    #main{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        /* background-color: white; */
+        height: 80vh;
+        width: 85vw;
+        margin: 10vh auto;
+        border-radius: 30px;
+        /* border: 1px solid rgba(255, 255, 255, 0.125);
+        box-shadow: 7px 7px 14px #4384a0, -7px -7px 29px #01102b; */
+    }
+    #conTime{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: whitesmoke;
+        background-color: rgba(22, 21, 21, 0.806);
+        margin: 1vh 0 3vh 0;
+        height: 15vh;
+        width: 80vw;
+        border-radius: 60px;
+        font-size: 10vw;
+        box-shadow: 2px 2px 4px #adadad, -7px -7px 29px #ffffffd2;
+    }
+    #conBtn{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        height: 12vh;
+        width: 80vw;
+        margin: 0 3vh 4vh 3vh;
+        border-radius: 50px;
+        
+    }
+    #conLap{
+        display: flex;
+        justify-content: center;
+        /* background-color: black; */
+        margin-bottom: 1vh;
+        height: 45vh;
+        width: 80vw;
+        /* border-radius: 5vh; */
+        overflow: auto;
+        border-top: 3px dotted rgba(255, 255, 255, 0.418);
+        /* box-shadow: 3px 3px 7px #adadad7e, -3px -3px 15px #ffffff58; */
+    }
+    #list{
+        color: rgba(245, 245, 245, 0.529);
+        font-size: 20px;
+    }
+    button{
+        border: none;
+        border-radius: 10vh;
+        height: 12vh;
+        width: 30vh;
+        color: rgba(245, 245, 245, 0.937);
+        font-size: 40px;
+        cursor: pointer;
+    }
+    #startBtn{
+        background-color: rgb(10, 223, 116);
+        box-shadow: 3px 3px 7px #adadad, -3px -3px 15px #ffffff;
+    }
+    #lapBtn{
+        background-color: rgb(96, 185, 221);
+        box-shadow: 3px 3px 7px #adadad, -3px -3px 15px #ffffff;
+    }
