@@ -60,6 +60,7 @@ input
 {
   overflow: auto;
   height: 60vh;
+  margin-top: 2vh;
 }
 
 #rightDiv
