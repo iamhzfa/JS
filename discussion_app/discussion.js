@@ -81,11 +81,11 @@ function addQuestionInPanel(question){
     questionContainerNode.appendChild(newQuestionDescriptionNode);
 
     var upvoteTextNode = document.createElement('h5');
-    upvoteTextNode.innerHTML = 'Upvote = '+ question.upvotes;
+    upvoteTextNode.innerHTML = 'upvotes = '+ question.upvotes;
     questionContainerNode.appendChild(upvoteTextNode);
 
     var downvoteTextNode = document.createElement('h5');
-    downvoteTextNode.innerHTML = 'Downvote = '+ question.downvotes;
+    downvoteTextNode.innerHTML = 'downvotes = '+ question.downvotes;
     questionContainerNode.appendChild(downvoteTextNode);
 
     allQuestionsListNode.appendChild(questionContainerNode);
@@ -97,7 +97,7 @@ function addQuestionInPanel(question){
     questionContainerNode.addEventListener('mouseout', function(){
         questionContainerNode.style.backgroundColor = 'rgb(226, 225, 222)'
     })
-    questionContainerNode.addEventListener('click', onQuestionClick(question));
+    questionContainerNode.onclick = onQuestionClick(question);
     
 }
 
@@ -355,10 +355,41 @@ function updateQuestionUI(question){
     
 }
 
-newQuestionFormBtn.addEventListener('click', openQuestionForm); // new question form btn
+newQuestionFormBtn.addEventListener('click', openQuestionForm); // add event listener on new question form btn
 
 // OPEN QUESTION FORM
 function openQuestionForm(){
     hideDetailsOfQuestion();
     showQuestionPanel();
+}
+
+resolveQuestionNode.addEventListener('click', resolveQuestionHandler); // add event listener on resolve question button  
+
+function resolveQuestionHandler(){
+    var allQuestions = getAllQuestions();
+
+    var resolveQuestion = questionDetailsContainerNode.childNodes[0].innerHTML;
+
+    // console.log(questionDetailsContainerNode.childNodes[0].innerHTML)
+    // console.log(e.target.parentNode);
+
+    var ind;
+
+    allQuestions.forEach(function(question){
+        if(question.title === resolveQuestion){
+            ind = allQuestions.indexOf(question); // for finding the index of the question in local sotrage
+            // console.log(question)
+            // console.log(allQuestionsListNode.children.length)
+            allQuestionsListNode.removeChild(  allQuestionsListNode.children[ind] ) // remove the question from GUI of the left panel
+        }
+    })
+
+    allQuestions.splice(ind, 1);
+
+    localStorage.setItem("questions", JSON.stringify(allQuestions)); //update the todos array
+    // Question is resolved
+
+    // now open the question form 
+    openQuestionForm();
+    
 }
