@@ -127,46 +127,49 @@ if (storedTodos !== null) {
     });
   }
 }
+
+
+
 // Mark done targeted todo
 // console.log(todoContainer.children.length)
-// var storedTodos = localStorage.getItem("todos");
-// // console.log(storedTodos);
-// if (storedTodos !== null) {
-//   todos = JSON.parse(storedTodos);
+var storedTodos = localStorage.getItem("todos");
+// console.log(storedTodos);
+if (storedTodos !== null) {
+  todos = JSON.parse(storedTodos);
   
-//   for (var i = 0; i < todoContainer.children.length; i++) {
+  for (var i = 0; i < todoContainer.children.length; i++) {
     
-//     var container = todoContainer.children[i];
-//     // console.log(container)
-//     var subContainer = container.children[1];
-//     // console.log(subContainer)
-//     var markBtn = subContainer.children[0];
-//     // console.log(markBtn.checked)
+    var container = todoContainer.children[i];
+    // console.log(container)
+    var subContainer = container.children[1];
+    // console.log(subContainer)
+    var markBtn = subContainer.children[0];
+    // console.log(markBtn.checked)
 
-//     // add event
-//     markBtn.addEventListener("change", function (e) {
-//         if(markBtn.checked == true){
-//           console.log('checked', markBtn.checked)
-//           var parent = e.target.parentNode;
-//             // console.log(parent)
-//           var grandParent = parent.parentNode;
-//           console.log(grandParent.childNodes[0])
-//           var task = grandParent.childNodes[0];
-//           task.style.textDecoration = 'line-through'
+    // add event
+    markBtn.addEventListener("change", function (e) {
+        if(markBtn.checked == true){
+          console.log('checked', markBtn.checked)
+          var parent = e.target.parentNode;
+            // console.log(parent)
+          var grandParent = parent.parentNode;
+          console.log(grandParent.childNodes[0])
+          var task = grandParent.childNodes[0];
+          task.style.textDecoration = 'line-through'
 
-//         }
-//         else{
-//           console.log('not checked', markBtn.checked)
-//           var parent = e.target.parentNode;
-//             // console.log(parent)
-//           var grandParent = parent.parentNode;
-//             // console.log(grandParent)
-//           var greatGrandParent = grandParent.parentNode;
-//           // console.log(greatGrandParent);
-//           var task = grandParent.childNodes[0];
-//           task.style.textDecoration = 'none'
+        }
+        else{
+          console.log('not checked', markBtn.checked)
+          var parent = e.target.parentNode;
+            // console.log(parent)
+          var grandParent = parent.parentNode;
+            // console.log(grandParent)
+          var greatGrandParent = grandParent.parentNode;
+          // console.log(greatGrandParent);
+          var task = grandParent.childNodes[0];
+          task.style.textDecoration = 'none'
           
-//         }
-//     });
-//   }
-// }
+        }
+    });
+  }
+}
