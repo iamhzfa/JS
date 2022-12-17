@@ -21,6 +21,7 @@ box.addEventListener("keydown", function clickHandler(e) {
     var deleteButton = document.createElement("button");
 
     radioButton.setAttribute("type", "checkbox");
+
     radioButton.setAttribute("class", "checkBtn");
     deleteButton.setAttribute("class", "closeBtn");
 
@@ -36,7 +37,7 @@ box.addEventListener("keydown", function clickHandler(e) {
 
     taskHeading.innerHTML = value;
 
-    todos.push(value);
+    todos.push({todos: value, isChecked: false});
     localStorage.setItem("todos", JSON.stringify(todos));
 
     todoContainer.appendChild(container);
@@ -69,6 +70,15 @@ if (storedTodos !== null) {
 
     deleteButton.innerHTML = "X";
 
+    if(value.isChecked){
+      radioButton.checked = true;
+      taskHeading.style.textDecoration = 'line-through'
+    }
+    else{
+      radioButton.checked = false;
+      taskHeading.style.textDecoration = 'none'
+    }
+
     container.setAttribute("id", "containerId");
     subContainer.setAttribute("id", "subContainerId");
 
@@ -77,7 +87,7 @@ if (storedTodos !== null) {
     subContainer.appendChild(radioButton);
     subContainer.appendChild(deleteButton);
 
-    taskHeading.innerHTML = value;
+    taskHeading.innerHTML = value.todos;
 
     todoContainer.appendChild(container);
   });
@@ -113,7 +123,7 @@ if (storedTodos !== null) {
         var ind;
         
         todos.forEach(function(task){
-          if(task === clickedTodo){
+          if(task.todos === clickedTodo){
             ind = todos.indexOf(task);
             // console.log(ind);
           }
@@ -131,9 +141,7 @@ if (storedTodos !== null) {
 
 
 // Mark done targeted todo
-// console.log(todoContainer.children.length)
 var storedTodos = localStorage.getItem("todos");
-// console.log(storedTodos);
 if (storedTodos !== null) {
   todos = JSON.parse(storedTodos);
   
@@ -148,27 +156,47 @@ if (storedTodos !== null) {
 
     // add event
     markBtn.addEventListener("change", function (e) {
-        if(markBtn.checked == true){
-          console.log('checked', markBtn.checked)
+        // console.log(e.target.checked)
+        if(e.target.checked == true){
+          // console.log('checked', markBtn.checked)
           var parent = e.target.parentNode;
             // console.log(parent)
           var grandParent = parent.parentNode;
-          console.log(grandParent.childNodes[0])
-          var task = grandParent.childNodes[0];
-          task.style.textDecoration = 'line-through'
+          // console.log(grandParent.childNodes[0])
+        
+          var markedTask = grandParent.childNodes[0];
+          markedTask.style.textDecoration = 'line-through'
+          // console.log(markedTask)
 
+          var updatedTodos = todos.map(function(task){
+            // console.log(task.todos, task.isChecked, markedTask.innerHTML)
+            if(task.todos === markedTask.innerHTML){
+              task.isChecked = true;
+            }
+            return task;
+          })
+          
+          localStorage.setItem('todos', JSON.stringify(updatedTodos));
         }
         else{
-          console.log('not checked', markBtn.checked)
+          // console.log('not checked', markBtn.checked)
           var parent = e.target.parentNode;
             // console.log(parent)
           var grandParent = parent.parentNode;
             // console.log(grandParent)
-          var greatGrandParent = grandParent.parentNode;
-          // console.log(greatGrandParent);
-          var task = grandParent.childNodes[0];
-          task.style.textDecoration = 'none'
-          
+
+          var markedTask = grandParent.childNodes[0];
+          markedTask.style.textDecoration = 'none'
+          // console.log(markedTask)
+
+          var updatedTodos = todos.map(function(task){
+            if(task.todos === markedTask.innerHTML){
+              task.isChecked = false;
+            }
+            return task;
+          })
+
+          localStorage.setItem('todos', JSON.stringify(updatedTodos));
         }
     });
   }
