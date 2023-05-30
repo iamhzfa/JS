@@ -1,0 +1,19 @@
+{
+  "name": "first",
+  "version": "1.0.0",
+  "type": "commonjs",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node index.js",
+    "start": "nodemon index.js"
+  },
+  "author": "iamhzfa",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "nodemon": "^2.0.22",
+    "pg": "^8.11.0"
+  }
+}
